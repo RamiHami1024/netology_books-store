@@ -1,4 +1,4 @@
-const Users = require('../model/users')
+const Users = require('../models/users')
 
 exports.findById = async function (id, cb) {
     try {

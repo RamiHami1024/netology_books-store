@@ -5,7 +5,7 @@ const {getData} = require('../middleware/getDataIncrement')
 const fs = require('fs')
 const passport = require('passport')
 const db = require('../db')
-const Books = require('../model/books')
+const Books = require('../models/books')
 
 
 router.get('/', async (req, res) => {
