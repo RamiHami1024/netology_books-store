@@ -1,12 +1,12 @@
 
 abstract class BooksRepository {
-    abstract createBook(book: object): void | string;
+    abstract createBook(book: object): string | Error;
 
-    abstract getBook(id: string): object | void;
+    abstract getBook(id: string): object | Error;
 
-    abstract getBooks(): object | void;
+    abstract getBooks(): object | Error;
 
-    abstract updateBook(id: string): string | void;
+    abstract updateBook(id: string): string | Error;
 
-    abstract deleteBook(id: string): string | void;
+    abstract deleteBook(id: string): string | Error;
 }
