@@ -1,8 +1,11 @@
+import 'reflect-metadata'
+import { injectable } from 'inversify'
 
-abstract class BooksRepository {
+@injectable()
+export abstract class BooksRepository {
     abstract createBook(book: object): string | Error;
 
-    abstract getBook(id: string): object | Error;
+    abstract getBook(id: string): Promise<object | Error>;
 
     abstract getBooks(): object | Error;
 

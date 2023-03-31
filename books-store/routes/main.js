@@ -7,7 +7,6 @@ const passport = require('passport')
 const db = require('../db')
 const Books = require('../models/books')
 
-
 router.get('/', async (req, res) => {
     res.render('index', {
         title: 'Главная'
