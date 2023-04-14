@@ -1,6 +1,7 @@
-import express from 'express';
+import express = require('express');
 import { Express } from 'express';
 import { router } from './routes/main'
+import 'express-session';
 import mongoose, { Callback } from 'mongoose'
 import session from 'express-session'
 import passport from 'passport'
@@ -50,7 +51,7 @@ const options = {
     passwordField: "password",
 }
 
-passport.serializeUser<any, any>((user: Array<iUser>, cb: Function) => {
+passport.serializeUser((user: Array<iUser>, cb: Function) => {
     cb(null, user[0].id)
 })
 

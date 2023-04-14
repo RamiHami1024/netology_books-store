@@ -3,7 +3,7 @@ const router = Router()
 import { storage } from '../middleware/'
 import { getData } from '../services/getDataIncrement'
 import { existsSync, unlinkSync } from 'fs'
-import { authenticate } from 'passport'
+import passport from 'passport'
 import { createUser } from '../db/user'
 import { Books } from '../models/books'
 import multer from 'multer'
@@ -22,7 +22,7 @@ router.get('/users/login', (req: Request, res: Response) => {
 
 router.post(
     '/users/login',
-    authenticate('local', { failureRedirect: '/' }),
+    passport.authenticate('local', { failureRedirect: '/' }),
     (req: Request, res: Response) => {
         res.redirect('/user/me')
     }
