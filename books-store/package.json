@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/RamiHami1024/netology-homewok_nodejs_express#readme",
   "dependencies": {
+    "@types/passport": "^1.0.12",
     "axios": "^1.0.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",

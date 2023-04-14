@@ -6,7 +6,6 @@ import { existsSync, unlinkSync } from 'fs'
 import { authenticate } from 'passport'
 import { createUser } from '../db/user'
 import { Books } from '../models/books'
-import { iAuthenticate } from '../interfaces/index';
 import multer from 'multer'
 
 const upload = multer({ storage: storage })
@@ -44,13 +43,13 @@ router.post(
     })
 
 router.get('/user/me',
-    (req: iAuthenticate, res: Response, next) => {
+    (req: Request, res: Response, next) => {
         if (!req.isAuthenticated()) {
             return res.redirect('/users/login')
         }
         next()
     },
-    (req: iAuthenticate, res: Response) => {
+    (req: Request, res: Response) => {
         res.render('user/profile', { title: 'Профиль', user: req.user })
     })
 

@@ -1,5 +1,3 @@
-import { Request } from 'express';
-
 export interface iBooks {
     title: string;
     description: string;
@@ -13,11 +11,6 @@ export interface iUser {
     id: string;
     userName: string;
     password: string;
-}
-
-export interface iAuthenticate extends Request {
-    isAuthenticated: Function;
-    user: iUser;
 }
 
 interface iBookFile {

@@ -4,6 +4,7 @@ import { router } from './routes/main'
 import mongoose, { Callback } from 'mongoose'
 import session from 'express-session'
 import passport from 'passport'
+import passportLocal from 'passport-local'
 require('dotenv').config()
 import { findById, findByUsername, verifyPassword, createUser } from './db/user'
 const http = require('http');
@@ -12,7 +13,7 @@ import { socketHandler } from './handlers/socket'
 import { iUser } from './interfaces/index'
 
 const app: Express = express();
-const LocalStrategy = require('passport-local').Strategy
+const LocalStrategy = passportLocal.Strategy
 const server = new http.Server(app)
 const io = new Server(server)
 const PORT = Number(process.env.PORT) || 3000
@@ -49,7 +50,7 @@ const options = {
     passwordField: "password",
 }
 
-passport.serializeUser((user: Array<iUser>, cb: Function) => {
+passport.serializeUser<any, any>((user: Array<iUser>, cb: Function) => {
     cb(null, user[0].id)
 })
 
