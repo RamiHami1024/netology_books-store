@@ -61,7 +61,7 @@ passport.deserializeUser(async (id: string, cb: Function) => {
     })
 })
 
-passport.use(new LocalStrategy(options), verify)
+passport.use('local', new LocalStrategy(options, verify))
 
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'SECRET' }));
