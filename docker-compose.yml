@@ -24,6 +24,11 @@ services:
       - counter
     networks:
       - store-network
+    environment:
+      - DB_URL=${DB_URL}
+      - PORT=${PORT}
+      - ADMIN=${ADMIN}
+      - ADMIN_PASS=${ADMIN_PASS}
     volumes:
       - ./books-store/public:/app/public
   mongo:
